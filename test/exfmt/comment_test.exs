@@ -42,6 +42,17 @@ defmodule Exfmt.CommentTest do
       assert extract_comments(code) == {:ok, [{:"#", [line: 3], [" a comment!"]}]}
     end
 
+    test "unicode comment" do
+      code = """
+      1
+      2
+      # あいうえお
+      4
+      5
+      """
+      assert extract_comments(code) == {:ok, [{:"#", [line: 3], [" あいうえお"]}]}
+    end
+
     test "hash in string" do
       code = """
       "# not a comment"

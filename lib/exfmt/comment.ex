@@ -115,11 +115,11 @@ defmodule Exfmt.Comment do
 
 
   defp split_comment([?\n | src], contents) do
-    {IO.iodata_to_binary(contents), src}
+    {:unicode.characters_to_binary(contents), src}
   end
 
   defp split_comment([], contents) do
-    {IO.iodata_to_binary(contents), []}
+    {:unicode.characters_to_binary(contents), []}
   end
 
   defp split_comment([c | src], contents) do
