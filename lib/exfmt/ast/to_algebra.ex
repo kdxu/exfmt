@@ -378,7 +378,7 @@ defmodule Exfmt.Ast.ToAlgebra do
         {primary_open, primary_close}
       end
     ["~", char, open, sigil_escape(contents, close), close, mods]
-    |> IO.iodata_to_binary()
+    |> :unicode.characters_to_binary()
   end
 
 
